@@ -1,15 +1,20 @@
 import React from "react";
 import {BrowserRouter, Route, Link} from "react-router-dom";
+import StreamCreate from './streams/StreamCreate';
+import StreamEdit from './streams/StreamEdit';
+import StreamDelete from './streams/StreamDelete';
+import StreamShow from './streams/StreamShow';
+import StreamList from './streams/StreamList';
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div>
-          <Header/>
-          <Route path='/' exact component={PageOne}/>
-          <Route path='/pagetwo' exact component={PageTwo}/>
-        </div>
+        <Route path='/' exact component={StreamList}/>
+        <Route path='/streams/edit' exact component={StreamEdit}/>
+        <Route Path='/Streams/delete' exact component={StreamDelete}/>
+        <Route Path='/Streams/create' exact component={StreamCreate}/>
+        <Route Path='/Streams/show' exact component={StreamShow}/>
       </BrowserRouter>
     </div>
   );
@@ -18,41 +23,3 @@ const App = () => {
 export default App;
 
 
-const PageOne = () => {
-  return (
-    <div>
-      <div className="ui header">
-        <Link to='/pagetwo'>
-          <button className="ui tiny button">to go page 2</button>
-        </Link>
-      </div>
-    </div>
-  )
-};
-const PageTwo = () => {
-  return (
-    <div>
-      <div className="ui header">
-        <Link to='/'>
-          <button className="ui tiny button">go to page 1</button>
-        </Link>
-      </div>
-    </div>
-  )
-};
-
-
-const Header = () => {
-  return (
-    <div className="ui secondary menu">
-      <div className="ui item">
-        <Link to='/'>
-          <button className="ui green medium button">go to page 2</button>
-        </Link>
-        <Link to='/pagetwo'>
-          <button className="ui yellow medium button">go to page 1</button>
-        </Link>
-      </div>
-    </div>
-  )
-};
