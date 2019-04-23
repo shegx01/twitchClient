@@ -4,7 +4,7 @@ const StreamDelete = () => {
 
   return (
     <div>
-      StreamLisr
+      StreamList
     </div>
   )
 };
